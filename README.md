@@ -111,3 +111,11 @@ Para garantir a transparência técnica e a confiabilidade do protótipo, a lóg
   * 🔗 [Tábuas de Maré](https://www.marinha.mil.br/chm/dados-do-segmar/tabuas-de-mare)
 * **Epagri/Ciram:** Órgão estadual responsável pelo monitoramento oficial do nível da calha dos rios em tempo real.
   * 🔗 [Acessar Epagri/Ciram](https://ciram.epagri.sc.gov.br/)
+
+---
+
+## 🌐 Demonstração Online
+
+O protótipo funcional pode ser acessado diretamente pelo navegador:
+
+🔗 **[Acessar Monitor Hidrometeorológico de Joinville](https://maiquel-devs.github.io/joinville-alerta-enchente/)**
