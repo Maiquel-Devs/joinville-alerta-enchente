@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitor Hidrometeorológico | Joinville - SC</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌧️ Monitor de Risco Hidrológico - Joinville</h1>
+    <p>Indicador de saturação de solo e risco de transbordamento de bacias pluviais</p>
+  </header>
+
+  <main class="container">
+    <!-- Barra de Simulação Técnica -->
+    <section class="simulation-bar">
+      <span>Modo de Operação:</span>
+      <button class="btn active" data-scenario="real">Tempo Real (Open-Meteo)</button>
+      <button class="btn" data-scenario="atencao">Simular Limiar de Atenção (40mm/24h)</button>
+      <button class="btn" data-scenario="alerta">Simular Alerta Crítico (85mm/24h)</button>
+    </section>
+
+    <!-- Card Principal de Risco Hidrológico -->
+    <section id="risk-card" class="card risk-normal">
+      <div class="risk-badge" id="risk-badge">🟢 Nível 1: Observação</div>
+      <h2 id="risk-title">Capacidade de Drenagem Estável</h2>
+      <p id="risk-description">Carregando telemetria pluviométrica oficial...</p>
+    </section>
+
+    <!-- Métricas Hidrometeorológicas Oficiais -->
+    <section class="metrics-grid">
+      <div class="card metric">
+        <span class="label">Acumulado 24h (Passado)</span>
+        <strong id="rain-past-24h">-- mm</strong>
+        <small class="sub-label">Saturação do solo</small>
+      </div>
+      <div class="card metric">
+        <span class="label">Precipitação Atual</span>
+        <strong id="rain-current">-- mm/h</strong>
+        <small class="sub-label">Intensidade instantânea</small>
+      </div>
+      <div class="card metric">
+        <span class="label">Previsão 6 Horas</span>
+        <strong id="rain-forecast-6h">-- mm</strong>
+        <small class="sub-label">Tendência de curto prazo</small>
+      </div>
+      <div class="card metric">
+        <span class="label">Volume Crítico Considerado</span>
+        <strong id="total-considered">-- mm</strong>
+        <small class="sub-label">Índice Defesa Civil (24h + Prev.)</small>
+      </div>
+    </section>
+
+    <!-- Seletor de Bacias Hidrográficas / Bairros -->
+    <section class="card select-section">
+      <label for="basin-select"><strong>Selecione a Bacia Hidrográfica Monitorada:</strong></label>
+      <select id="basin-select">
+        <option value="cachoeira_centro">Bacia do Rio Cachoeira (Centro, Bucarein e Anita Garibaldi)</option>
+        <option value="agua_vermelha">Bacia do Rio Água Vermelha (Vila Nova)</option>
+        <option value="itaum_morro">Bacia do Rio Itaum / Morro do Meio (Zona Sul e Oeste)</option>
+      </select>
+    </section>
+
+    <!-- Mapa de Polígonos de Vulnerabilidade -->
+    <section class="card map-container">
+      <div class="map-header">
+        <span>Mapeamento Georreferenciado das Zonas de Várzea e Calhas</span>
+      </div>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
